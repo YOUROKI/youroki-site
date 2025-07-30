@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Портфолио фронтенд-разработчика YOUROKI">
+  <title>Мои проекты | YOUROKI</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fafafa;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+      transition: 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .card-text {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 12px;
+    }
+
+    .btn {
+      background: #4a90e2;
+      color: white;
+      padding: 10px 14px;
+      text-decoration: none;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background: #367cd7;
+    }
+  </style>
+</head>
+<body>
+  <h1>Мои проекты</h1>
+
+  <div class="grid">
+    <div class="card">
+      <img src="https://i.postimg.cc/mZVgXQFb/me2.jpg" alt="Проект 1">
+      <div class="card-body">
+        <div class="card-title">Первый проект</div>
+        <div class="card-text">Сайт с адаптивной вёрсткой на HTML и CSS.</div>
+        <a href="index.html" class="btn">На главную</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://i.postimg.cc/m2ZHXLXH/me.jpg" alt="Проект 2">
+      <div class="card-body">
+        <div class="card-title">Портфолио</div>
+        <div class="card-text">Главная страница портфолио YOUROKI.</div>
+        <a href="index.html" class="btn">На главную</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
