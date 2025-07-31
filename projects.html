@@ -1,45 +1,72 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Портфолио фронтенд-разработчика YOUROKI">
-  <title>Мои проекты | YOUROKI</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YOUROKI – Проекты</title>
   <style>
+    :root {
+      --bg-color: #eaeaff;
+      --card-bg: #fff;
+      --text-color: #111;
+      --accent: #6e4b7d;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
     body {
       margin: 0;
+      padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #fafafa;
-      padding: 40px 20px;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 25px;
+    }
+
+    .nav-links a {
+      margin-right: 20px;
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
     }
 
     h1 {
       text-align: center;
-      color: #333;
-      margin-bottom: 40px;
+      font-size: 28px;
+      color: var(--text-color);
+      margin: 20px 0 40px;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
+    .projects {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      padding: 0 20px 40px;
     }
 
     .card {
-      background: white;
-      border-radius: 16px;
+      background: var(--card-bg);
+      border-radius: 14px;
+      box-shadow: 0 8px 18px var(--shadow);
       overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
-      transition: 0.3s;
-      display: flex;
-      flex-direction: column;
+      width: 300px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px var(--shadow);
     }
 
     .card img {
@@ -48,61 +75,95 @@
       object-fit: cover;
     }
 
-    .card-body {
-      padding: 16px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .card-content {
+      padding: 20px;
+      text-align: center;
     }
 
     .card-title {
       font-size: 18px;
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      color: var(--accent);
     }
 
-    .card-text {
+    .card-desc {
       font-size: 14px;
-      color: #666;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
     }
 
     .btn {
-      background: #4a90e2;
+      background-color: var(--accent);
       color: white;
-      padding: 10px 14px;
-      text-decoration: none;
+      border: none;
+      padding: 8px 16px;
+      font-size: 14px;
       border-radius: 8px;
-      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s ease;
     }
 
     .btn:hover {
-      background: #367cd7;
+      background-color: #5d3c6d;
+    }
+
+    @media (max-width: 768px) {
+      .projects {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+        width: 90%;
+      }
+
+      .nav-links {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 <body>
+
+  <header>
+    <div class="nav-links">
+      <a href="index.html">Главная</a>
+      <a href="projects.html">Проекты</a>
+    </div>
+  </header>
+
   <h1>Мои проекты</h1>
 
-  <div class="grid">
+  <div class="projects">
     <div class="card">
-      <img src="https://i.postimg.cc/mZVgXQFb/me2.jpg" alt="Проект 1">
-      <div class="card-body">
-        <div class="card-title">Первый проект</div>
-        <div class="card-text">Сайт с адаптивной вёрсткой на HTML и CSS.</div>
-        <a href="index.html" class="btn">На главную</a>
+      <img src="https://i.postimg.cc/m2ZHXLXH/me.jpg" alt="О себе">
+      <div class="card-content">
+        <div class="card-title">О себе</div>
+        <div class="card-desc">Знакомство</div>
+        <a href="about.html" class="btn">Смотреть</a>
       </div>
     </div>
 
     <div class="card">
-      <img src="https://i.postimg.cc/m2ZHXLXH/me.jpg" alt="Проект 2">
-      <div class="card-body">
-        <div class="card-title">Портфолио</div>
-        <div class="card-text">Главная страница портфолио YOUROKI.</div>
-        <a href="index.html" class="btn">На главную</a>
+      <img src="https://i.postimg.cc/90xMsLyZ/Chat-GPT-Image-31-2025-16-29-06.png" alt="Сайты">
+      <div class="card-content">
+        <div class="card-title">Сайты</div>
+        <div class="card-desc">Сайты с адаптивной вёрсткой на HTML и CSS</div>
+        <a href="sites.html" class="btn">Смотреть</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://i.postimg.cc/PJ0ybQNz/me2.jpg" alt="Фотографии">
+      <div class="card-content">
+        <div class="card-title">Фотографии</div>
+        <div class="card-desc">Красивые люди и места, обработка, процесс</div>
+        <a href="photos.html" class="btn">Смотреть</a>
       </div>
     </div>
   </div>
+
 </body>
 </html>
