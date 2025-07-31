@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YOUROKI – Галерея и биография</title>
+  <style>
+    :root {
+      --bg-color: #fafafa;
+      --text-color: #111;
+      --accent-color: #b48fcc;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* Кнопка назад */
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background-color: white;
+      color: var(--accent-color);
+      border: none;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back-button:hover {
+      background-color: var(--accent-color);
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .bio {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+      text-align: center;
+    }
+
+    .bio img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent-color);
+      margin-bottom: 15px;
+    }
+
+    .bio h1 {
+      font-size: 24px;
+      margin: 10px 0 8px;
+      color: var(--accent-color);
+    }
+
+    .bio p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 0 auto;
+      white-space: pre-line;
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--accent-color);
+      margin-bottom: 30px;
+    }
+
+    .insta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .photo-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .photo-container img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      cursor: pointer;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .photo-container img:hover {
+      transform: scale(1.05);
+    }
+
+    .like {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      font-size: 22px;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.2s ease;
+    }
+
+    .like.liked {
+      color: rgb(255, 0, 212);
+      transform: scale(1.2);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .modal img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .photo-container img {
+        height: 180px;
+      }
+
+      .bio p {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Кнопка Назад -->
+  <button class="back-button" onclick="history.back()" aria-label="Назад">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6" />
+    </svg>
+  </button>
+
+  <!-- Мини-биография -->
+  <div class="bio">
+    <img src="https://i.postimg.cc/m2ZHXLXH/me.jpg" alt="YOUROKI">
+    <h1>YOUROKI</h1>
+    <p>
+Привет! Меня зовут Варя, я начинающий фронтенд-разработчик и визуал-художница.  
+Я родилась в г. Москва 20.06.2006 — простая дата, но многие до сих пор путают её.
+
+С раннего детства я занималась танцами — от русских народных до своей авторской стилистики.  
+Сейчас я педагог-хореограф по электро и авторской хореографии.  
+У меня есть 2 команды: электро — YOUROKIDS, автор. хорео — VPOTOKE.  
+Мне искренне нравится моя работа!
+
+Также с подросткового возраста мне полюбились фотографии.  
+Какое-то время я даже вела отдельный аккаунт со своими работами.  
+И по сей день я люблю запечатлевать то, что нахожу интересным своими глазами.
+
+Недавно я начала изучать разработку сайтов.  
+Никогда бы не подумала, что такое может меня заинтересовать.  
+Мне нравится создавать интерфейсы с душой, работать с HTML и CSS.
+
+Добро пожаловать!  
+    </p>
+  </div>
+
+  <!-- Галерея -->
+  <h2>Me</h2>
+  <div class="insta-grid">
+    <div class="photo-container">
+      <img src="https://i.postimg.cc/cHfp26GS/1.jpg" alt="Фото 1">
+      <span class="like">🖤</span>
+    </div>
+    <div class="photo-container">
+      <img src="https://i.postimg.cc/CMsy4Z4C/2.jpg" alt="Фото 2">
+      <span class="like">🖤</span>
+    </div>
+    <div class="photo-container">
+      <img src="https://i.postimg.cc/Cxt9KbF0/3.jpg" alt="Фото 3">
+      <span class="like">🖤</span>
+    </div>
+    <div class="photo-container">
+      <img src="https://i.postimg.cc/KjZHWN5P/4.jpg" alt="Фото 4">
+      <span class="like">🖤</span>
+    </div>
+    <div class="photo-container">
+      <img src="https://i.postimg.cc/m2p5d719/5.jpg" alt="Фото 5">
+      <span class="like">🖤</span>
+    </div>
+    <div class="photo-container">
+      <img src="https://i.postimg.cc/d0rNtXHR/6.jpg" alt="Фото 6">
+      <span class="like">🖤</span>
+    </div>
+  </div>
+
+  <!-- Модальное окно -->
+  <div class="modal" id="modal">
+    <span class="modal-close" id="modalClose">&times;</span>
+    <div class="modal-content">
+      <img id="modalImg" src="" alt="Большое фото" />
+    </div>
+  </div>
+
+  <script>
+    // Модальное открытие
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modalImg");
+    const modalClose = document.getElementById("modalClose");
+
+    document.querySelectorAll('.photo-container img').forEach(img => {
+      img.addEventListener('click', () => {
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+      });
+    });
+
+    modalClose.addEventListener('click', () => {
+      modal.style.display = "none";
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+
+    // Лайк эффект
+    document.querySelectorAll('.like').forEach(likeBtn => {
+      likeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        likeBtn.classList.toggle('liked');
+        likeBtn.textContent = likeBtn.classList.contains('liked') ? '❤️' : '🖤';
+      });
+    });
+  </script>
+</body>
+</html>
